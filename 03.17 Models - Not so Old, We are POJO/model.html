@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Angular Controllers</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script>
+			(function() {
+				var name = "myApp",
+					requires = [];
+					myApp = null;
+
+				myApp = angular.module(name, requires);
+
+				myApp.controller("AppCtrl", function() {
+					this.employee = {
+						firstName: "Nick",
+						lastName: "van der Sangen",
+						occupation: "Application Developer"
+					};
+				});
+			}());
+		</script>
+	</head>
+	<body ng-controller="AppCtrl as app">
+			<p>{{app.employee.firstName + " " + app.employee.lastName + " - " + app.employee.occupation}}</p>
+	</body>
+</html>
