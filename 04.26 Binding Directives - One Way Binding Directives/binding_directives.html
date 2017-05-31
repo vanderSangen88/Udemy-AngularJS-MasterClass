@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Binding Directives</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script>
+			(function() {
+				var name = "myApp",
+						requires = [];
+						myApp = null;
+
+				myApp = angular.module(name, requires);
+
+				myApp.controller("AppCtrl", function($scope) {
+					$scope.contacts = [
+						{firstname: "Steve", lastname: "Rogers"},
+						{firstname: "Peter", lastname: "Parker"},
+						{firstname: "Tony", lastname: "Stark"},
+						{firstname: "Bruce", lastname: "Banner"},
+						{firstname: "Thor", lastname: "Son of Odin"}
+					];
+
+					$scope.addContact = function() {
+						$scope.contacts.push({firstname: "Hulk", lastname: "Hogan"});
+					}
+				});
+
+			}());
+		</script>
+	</head>
+	<body ng-controller="AppCtrl">
+		<div>Total number of contacts: {{::contacts.length}} and first contact is: {{contacts[0].firstname}} {{contacts[0].lastname}}</div>
+		<div ng-bind="contacts.length"></div>
+		<div ng-bind-template="{{contacts.length}} and first contact is: {{contacts[0].firstname}} {{contacts[0].lastname}}"></div>
+		<div ng-non-bindable>This {{ and }} is used for binding in AngularJS!</div>
+		<button ng-click="addContact()">Add Contact</button>
+	</body>
+</html>
