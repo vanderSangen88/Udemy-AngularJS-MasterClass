@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Angular Controllers</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body ng-controller="AppCtrl as app">
+		<h1>Addition of two numbers</h1>
+
+		First Number: <input ng-model="app.firstNum" type="text" id="firstNumInput" /><br />
+		Second Number: <input ng-model="app.secondNum" type="text" id="secondNumInput" /><br />
+
+		Option: <button ng-click="app.setOperation('+')">Add (+)</button>
+		<button ng-click="app.setOperation('-')">Subtract (-)</button><br />
+
+		<button id="calculateBtn" ng-click="app.calculate(app.firstNum, app.secondNum)">Calculate!</button><br />
+
+		Result: <p id="result" ng-bind="app.result"></p>
+	</body>
+</html>
